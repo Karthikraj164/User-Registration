@@ -1,0 +1,64 @@
+<div class="register-form-width">
+    <header class="register-form-bottom">
+        Sign In
+    </header>
+
+    <form [formGroup]="registrationForm">
+        <div class="form-group register-form-bottom">
+            <label for="username">User Name:</label>
+            <input type="text" class="form-control" placeholder="Enter User Name" formControlName="userName">
+            <span class="text-danger"
+                *ngIf="(registrationForm.controls['userName'].touched) && registrationForm.controls['userName'].errors?.['required']">
+                User Name is required
+            </span>
+        </div>
+        <div class="form-group register-form-bottom">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" placeholder="Enter Email" formControlName="email">
+            <span class="text-danger"
+                *ngIf="(registrationForm.controls['email'].touched) && registrationForm.controls['email'].errors?.['required']">
+                Email is required
+            </span>
+            <span class="text-danger"
+            *ngIf="(registrationForm.controls['email'].touched) && registrationForm.controls['email'].errors?.['email']">
+            Please Enter Valid Email
+        </span>
+        </div>
+        <div class="address-container">
+            <ng-container formArrayName="address">
+                <ng-container *ngFor="let control of address.controls; let i = index">
+                    <div [formGroupName]="i">
+
+                        <label>Address:</label>
+                        <div class="form-group register-form-bottom">
+                            <label for="city">City:</label>
+                            <input type="text" class="form-control" placeholder="Enter your city"
+                                formControlName="city">
+                        </div>
+                        <div class="form-group register-form-bottom">
+                            <label for="state">State:</label>
+                            <input type="text" class="form-control" placeholder="Enter your state"
+                                formControlName="state">
+                        </div>
+                        <div class="form-group register-form-bottom">
+                            <label for="pincode">Pin code:</label>
+                            <input type="number" class="form-control" placeholder="Enter your pin code"
+                                formControlName="pincode">
+                        </div>
+                        <div class="button-container">
+                            <button *ngIf="i !== 0" type="button" class="btn btn-primary"
+                                (click)="deleteAddress(i)">Delete address</button>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <button type="button" class="btn btn-primary add-address-btn" (click)="addAddress()">Add
+                address</button>
+        </div>
+        <div class="register-btn">
+            <button type="button" class="btn btn-primary" [disabled]="!registrationForm.valid"
+                (click)="registerUser()">Register User</button>
+        </div>
+    </form>
+    <p class="warning" *ngIf="showMessage">New user has been successfully registered.</p>
+</div>

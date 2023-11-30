@@ -1,0 +1,42 @@
+.register-form-width {
+    width: 40%;
+    margin-left: 120px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+
+    .register-form-bottom {
+        margin-bottom: 20px;
+    }
+    
+    .address-container {
+        border-style: dotted;
+        padding: 10px;
+        border-color: lightgray;
+
+        .button-container {
+            text-align: right;
+        }
+        
+        .add-address-btn {
+            margin-right: 10px;
+        }
+    }
+    
+    .register-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+    
+    .warning {
+        color: green;
+        font-style: italic;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+    }
+}
+

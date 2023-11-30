@@ -1,0 +1,32 @@
+<header class="tbl-header">Registered Users</header>
+<p class="warning" *ngIf="!userData?.length">No users to display</p>
+<table *ngIf="userData?.length" class="table container table-bordered caption-top tbl-bottom">
+    <caption class="caption">User Details</caption>
+    <thead>
+        <tr>
+            <th scope="col" class="text-center">User Name</th>
+            <th scope="col" class="text-center">Email</th>
+            <th scope="col" class="text-center">Address</th>
+            <th scope="col" class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userData; index as i">
+            <td class="text-center">{{user.userName}}</td>
+            <td class="text-center">{{user.email}}</td>
+            <td class="text-center">
+                <ng-container *ngFor="let address of user.address">
+                    <span style="display: block;">
+                        {{ 'City: ' +
+                        address.city + ','}}
+                    </span> <span style="display: block;">
+                        {{'State: ' + address.state + ',' }}
+                    </span> <span style="display: block;">
+                        {{'Pin: ' + address.pincode }}
+                    </span><wbr>
+                </ng-container>
+            </td>
+            <td class="text-center"> <i class="bi bi-x-circle-fill img-height" (click)="deleteUser(i)" ></i></td>
+        </tr>
+    </tbody>
+</table>

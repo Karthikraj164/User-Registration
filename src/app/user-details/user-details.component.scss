@@ -1,0 +1,37 @@
+.container {
+    width: 70%;
+    margin-left: 7%;
+  
+    
+    .caption {
+        text-align: center;
+        color: black;
+        font-weight: bold;
+    }
+    
+    .address-cell {
+        display: grid !important;
+    }
+    
+    .img-height {
+        font-size: 35px;
+    }
+    
+    .tbl-bottom {
+        margin-bottom: 70px;
+    }
+}
+
+.tbl-header {
+    margin-left: 7%;
+    margin-top: 5%;
+    font-weight: bold;
+}
+.warning {
+    margin-left: 7%;
+    margin-top: 15px;
+    color: red;
+    font-style: italic;
+    font-weight: 500;
+}
+
